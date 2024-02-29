@@ -30,7 +30,7 @@ The provided app deals with some usual concepts present in many website accounts
 
 - Sends a confirmation email to the user once it creates its account. If the account is not confirmed in an arbitrary period of time, the account is removed from the ddbb. This is achieved by integrating Celery into the project as a daemon.
 
-- Django Rest Framework don't provide a standard way of using the [authentication views](https://docs.djangoproject.com/en/5.0/topics/auth/default/#module-django.contrib.auth.views) better than creating a template an calling them as you'd do with a regular Django project. Hence, equivalent views have been added to this project to allow performing these tasks in an API way.
+- Django Rest Framework doesn't provide a standard way of using the [authentication views](https://docs.djangoproject.com/en/5.0/topics/auth/default/#module-django.contrib.auth.views) better than creating a template an calling them as you'd do with a regular Django project. Hence, equivalent views have been added to this project to allow performing these tasks in an API way.
 
 Feel free to add/remove any functionality needed by your project.
 
