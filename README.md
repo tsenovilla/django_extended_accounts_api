@@ -60,7 +60,8 @@ This application serves as a template for extending the Django user model. It is
 1. Copy the application into your Django project.
 2. Add specific configurations detailed at the end of `django_extended_accounts_api/settings.py` to your project's settings.
 3. Add URLs as specified in `django_extended_accounts_api/urls.py`.
-4. If using Celery, add `django_extended_accounts_api/celery.py` to the project's main folder (where `settings.py` resides).
+4. Add `django_extended_accounts_api/get_csrf_token.py to the project's main folder (where `seetings.py`resides).
+5. If using Celery, add `django_extended_accounts_api/celery.py` to the project's main folder (where `settings.py` resides).
 
 For the sake of simplicity, this project uses development configurations in some tasks such as image uploading or email sending. For production projects, configurations should be adapted.
 
