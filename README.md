@@ -73,7 +73,7 @@ If you feel that your project doesn't need Celery, you can happily remove it fro
 
 - Remove Celery from the project's requirements.
 - Delete Celery configurations in `django_extended_accounts_api/settings.py`.
-- Remove `django_extended_accounts_api/celery.py`, `extended_accounts_api/helpers/tasks.py`, and `extended_accounts_api/signals/post_save_account_model.py`.
+- Remove `django_extended_accounts_api/celery.py`, `extended_accounts_api/helpers/tasks.py`, and `extended_accounts_api/signals/post_save_account_model.py` (and the related tests of course).
 
 ## Contributing 📝
 
