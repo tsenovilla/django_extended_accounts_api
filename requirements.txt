@@ -1,7 +1,7 @@
 amqp==5.2.0
 asgiref==3.7.2
 billiard==4.2.0
-black==24.2.0
+black==24.3.0
 celery==5.3.6
 cfgv==3.4.0
 click==8.1.7
