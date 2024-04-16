@@ -29,7 +29,7 @@ python-dateutil==2.8.2
 pytz==2024.1
 PyYAML==6.0.1
 six==1.16.0
-sqlparse==0.4.4
+sqlparse==0.5.0
 tzdata==2024.1
 vine==5.1.0
 virtualenv==20.25.0
