@@ -7,7 +7,8 @@ from django.views.decorators.cache import never_cache
 from django.views.decorators.csrf import csrf_protect
 from django.conf import settings
 from rest_framework import status
-from rest_framework.generics import GenericAPIView, UpdateAPIView
+from rest_framework.views import APIView
+from rest_framework.generics import UpdateAPIView
 from rest_framework.response import Response
 from extended_accounts_api.helpers import (
     ResetPasswordRequestSerializer,
@@ -16,8 +17,7 @@ from extended_accounts_api.helpers import (
 from extended_accounts_api.models import AccountModel as Account
 
 
-class ResetPasswordRequestView(GenericAPIView):
-    serializer_class = ResetPasswordRequestSerializer
+class ResetPasswordRequestView(APIView):
     http_method_names = ["post"]
 
     def post(self, request):

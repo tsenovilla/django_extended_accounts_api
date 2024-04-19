@@ -62,6 +62,7 @@ class AccountSerializer(serializers.ModelSerializer):
             "email": instance.email,
             "phone_number": instance.profile.phone_number,
             "profile_image": instance.profile.profile_image.name,
+            "date_joined": instance.profile.date_joined.strftime("%Y-%m-%d"),
         }
 
     def validate_username(self, value):

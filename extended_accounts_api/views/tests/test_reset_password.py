@@ -4,10 +4,7 @@ from django.core import mail
 from django.urls import reverse_lazy
 from django.conf import settings
 from rest_framework.test import APITestCase, APIRequestFactory
-from extended_accounts_api.helpers import (
-    ResetPasswordRequestSerializer,
-    NewPasswordSerializer,
-)
+from extended_accounts_api.helpers import NewPasswordSerializer
 from extended_accounts_api.views import ResetPasswordRequestView, ResetPasswordView
 from extended_accounts_api.models import AccountModel as Account
 
@@ -28,7 +25,6 @@ class ResetPasswordRequestViewTestCase(APITestCase):
 
     def test_view_setup(self):
         view = ResetPasswordRequestView
-        self.assertTrue(view.serializer_class, ResetPasswordRequestSerializer)
         self.assertTrue(view.http_method_names, ["post"])
 
     def test_reset_password_request_OK_202(self):

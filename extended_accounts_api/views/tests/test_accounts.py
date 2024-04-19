@@ -185,6 +185,22 @@ class AccountsViewSetTestCase(APITestCase):
             account.username, self.data["username"]
         )  ## Check that the information has been updated by checking one of the fields
 
+    def test_get_authenticated_account_OK(self):
+        request = self.factory.get(self.url)
+        force_authenticate(request, self.account)
+        response = AccountsViewSet.as_view({"get": "get_authenticated_account"})(
+            request
+        )
+        self.assertEqual(response.data["username"], self.account.username)
+        self.assertEqual(response.status_code, 200)
+
+    def test_get_authenticated_account_KO(self):
+        request = self.factory.get(self.url)
+        response = AccountsViewSet.as_view({"get": "get_authenticated_account"})(
+            request
+        )
+        self.assertEqual(response.status_code, 403)
+
 
 ## We separate the tests of destroy request and destroy_profile_image request as if it's called before the update test in the previous TestCase, as it would interact with the MEDIA_ROOT and contaminate the test environment
 

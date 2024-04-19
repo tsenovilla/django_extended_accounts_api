@@ -131,6 +131,17 @@ class AccountSerializerTestCase(APITestCase):
         serializer_patch = AccountSerializer(context=patch_context)
         self.assertNotIn("password", serializer_patch.fields.keys())
 
+    def test_account_serializer_to_representation(self):
+        serializer = AccountSerializer()
+        representation = serializer.to_representation(self.account)
+        self.assertIn("username", representation.keys())
+        self.assertIn("first_name", representation.keys())
+        self.assertIn("last_name", representation.keys())
+        self.assertIn("email", representation.keys())
+        self.assertIn("phone_number", representation.keys())
+        self.assertIn("profile_image", representation.keys())
+        self.assertIn("date_joined", representation.keys())
+
     ## TEST VALIDATORS
 
     def test_account_serializer_OK(self):

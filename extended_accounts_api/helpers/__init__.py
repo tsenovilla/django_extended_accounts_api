@@ -1,4 +1,4 @@
-from .account_serializers import AccountSerializer
+from .account_serializer import AccountSerializer
 from .login_serializer import LoginSerializer
 from .password_serializers import (
     ResetPasswordRequestSerializer,

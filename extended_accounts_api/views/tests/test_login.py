@@ -2,7 +2,6 @@ from django.contrib.auth.models import AnonymousUser
 from django.contrib.sessions.middleware import SessionMiddleware
 from django.urls import reverse_lazy
 from rest_framework.test import APITestCase, APIRequestFactory
-from extended_accounts_api.helpers import LoginSerializer
 from extended_accounts_api.views import LoginView
 from extended_accounts_api.models import AccountModel as Account
 
@@ -25,7 +24,6 @@ class LoginViewTestCase(APITestCase):
 
     def test_view_setup(self):
         view = LoginView()
-        self.assertEqual(view.serializer_class, LoginSerializer)
         self.assertEqual(view.http_method_names, ["post"])
 
     def test_login_OK_200(self):

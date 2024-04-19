@@ -20,7 +20,7 @@ class AccountsViewSet(viewsets.ModelViewSet):
     parser_classes = [MultiPartParser, JSONParser]
 
     def get_permissions(self):
-        IsAuthenticated_methods = ["list", "retrieve"]
+        IsAuthenticated_methods = ["list", "retrieve", "get_authenticated_account"]
         IsSelf_methods = [
             "update",
             "partial_update",
@@ -66,6 +66,15 @@ class AccountsViewSet(viewsets.ModelViewSet):
             return Response(status=status.HTTP_204_NO_CONTENT)
         else:
             return Response(status=status.HTTP_400_BAD_REQUEST)
+
+    @action(detail=False, url_path="get_authenticated_account")
+    def get_authenticated_account(self, request):
+        return Response(
+            AccountSerializer().to_representation(
+                instance=Account.objects.get(username=request.user.username)
+            ),
+            status=status.HTTP_200_OK,
+        )
 
     def __send_confirmation_email(self, account):
         subject = "Account Confirmation"

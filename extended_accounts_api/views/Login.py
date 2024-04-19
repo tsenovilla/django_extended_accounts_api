@@ -4,12 +4,11 @@ from django.views.decorators.cache import never_cache
 from django.views.decorators.csrf import csrf_protect
 from rest_framework import status
 from rest_framework.response import Response
-from rest_framework.generics import GenericAPIView
+from rest_framework.views import APIView
 from extended_accounts_api.helpers import LoginSerializer
 
 
-class LoginView(GenericAPIView):
-    serializer_class = LoginSerializer
+class LoginView(APIView):
     http_method_names = ["post"]
 
     @method_decorator(csrf_protect)
